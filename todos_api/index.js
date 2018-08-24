@@ -10,11 +10,12 @@ var todoRoutes = require("./routes/todos");
     
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended : true}));
-    
+    app.use(express.static(__dirname +'/views'));  // for reading html files
+    app.use(express.static(__dirname +'/public'));// for reading css files
     
     
     app.get('/', function(req,res){
-        res.send('hi there from express ');
+        res.sendFile('index.html');
     });
  app.use('/api/todos', todoRoutes);   // important to no should write /api/todo all time just write / and it will be automaticlly /api/todos
     app.listen(port , function(){

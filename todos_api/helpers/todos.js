@@ -42,7 +42,7 @@ exports.ubdateTodo =function(req,res){
 };
 
 exports.deleteTodo =function(req,res){
-  db.todoId.remove({_id: req.params.todoId})
+  db.Todo.remove({_id : req.params.todoId})
   .then(function(){
     res.json({message: 'we deleted this '});
   })
